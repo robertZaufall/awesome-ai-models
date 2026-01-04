@@ -3,7 +3,9 @@
     - LOCATION
   prompt: |
     Generate the image with the following description (and look up the details like date and temperature, time so that you can use it in the image generation process):
-    Present a clear, 45° top-down isometric miniature 3D cartoon scene of [LOCATION], featuring its most iconic landmarks and architectural elements. Use soft, refined textures with realistic PBR materials and gentle, lifelike lighting and shadows. Integrate the current weather conditions directly into the environment to create an immersive atmospheric mood.
+    Present a clear, 45° top-down isometric miniature 3D cartoon scene of [LOCATION], featuring its most iconic landmarks and architectural elements. 
+    Use soft, refined textures with realistic PBR materials and gentle, lifelike lighting and shadows. 
+    Integrate the current weather conditions directly into the environment to create an immersive atmospheric mood.
     Use a clean, minimalistic composition with a soft, solid-colored background.
     At the top-center, place the title "[LOCATION]" in large bold text, a prominent weather icon beneath it, then the date (small text) and temperature (medium text).
     All text must be centered with consistent spacing, and may subtly overlap the tops of the buildings.
@@ -12,19 +14,30 @@
   variables:
     - LOCATION
   prompt: |
-    Create a hyperrealistic miniature planet showcasing [LOCATION] with famous landmarks seamlessly curving around the spherical surface. Position bold 3D white text "[LOCATION]" naturally integrated across the lush green central parkland with realistic shadows and dimensional depth. Capture from a top-down orbiting angle that emphasizes the dramatic planet curvature. Use soft golden hour daylight filtering through partly cloudy skies, casting gentle shadows on emerald grass and surrounding trees. The background should blend into a swirling atmospheric sky. Apply vibrant greens, warm earth tones, and soft blues. Render in polished photorealistic style with fine architectural detail.
+    Create a hyperrealistic miniature planet showcasing [LOCATION] with famous landmarks seamlessly curving around the spherical surface. 
+    Position bold 3D white text "[LOCATION]" naturally integrated across the lush green central parkland with realistic shadows and dimensional depth. 
+    Capture from a top-down orbiting angle that emphasizes the dramatic planet curvature. 
+    Use soft golden hour daylight filtering through partly cloudy skies, casting gentle shadows on emerald grass and surrounding trees. 
+    The background should blend into a swirling atmospheric sky. Apply vibrant greens, warm earth tones, and soft blues. 
+    Render in polished photorealistic style with fine architectural detail. Use a 1:1 aspect ratio.
 
 - name: "Cloud Castle"
   variables:
     - LOCATION
   prompt: |
-    Create an ultra-HD, hyper-realistic digital poster of a floating miniature island shaped like [LOCATION], resting on white clouds in the sky. Blend iconic landmarks, natural landscapes (like forests, mountains, or beaches), and cultural elements unique to [LOCATION]. Carve "[LOCATION]" into the terrain using large white 3D letters. Add artistic details like birds (native to [LOCATION]), cinematic lighting, vivid colors, aerial perspective, and sun reflections to enhance realism. Ultra-quality, 4K+ resolution.
+    Create an ultra-HD, hyper-realistic digital poster of a floating miniature island shaped like [LOCATION], resting on white clouds in the sky. 
+    Blend iconic landmarks, natural landscapes (like forests, mountains, or beaches), and cultural elements unique to [LOCATION]. 
+    Carve "[LOCATION]" into the terrain using large white 3D letters. 
+    Add artistic details like birds (native to [LOCATION]), cinematic lighting, vivid colors, aerial perspective, and sun reflections to enhance realism. Ultra-quality. 
+    Use a 16:9 aspect ratio.
 
 - name: "Product 1 (Wow! Brand)"
   variables:
     - PRODUCT
   prompt: |
-    Cinematic 3D action-packed advertisement of [PRODUCT], shown in a dynamic mid-motion scene that visually expresses its core energy — dramatic lighting, particles, slow-motion effects, and surreal studio photography. Design the scene to reflect the product's personality (crunchy, energetic, fast, luxurious, etc.). Add the brand logo made from elements of the product if possible, and a creative slogan beneath that fits the mood. 1:1 aspect ratio, hyperrealistic and bold, made to go viral.
+    Cinematic 3D action-packed advertisement of [PRODUCT], shown in a dynamic mid-motion scene that visually expresses its core energy — dramatic lighting, particles, slow-motion effects, 
+    and surreal studio photography. Design the scene to reflect the product's personality (crunchy, energetic, fast, luxurious, etc.). 
+    Add the brand logo made from elements of the product if possible, and a creative slogan beneath that fits the mood. 1:1 aspect ratio, hyperrealistic and bold, made to go viral.
 
 - name: "Product 2 (Brand and Location)"
   variables:
@@ -43,25 +56,45 @@
     - LOCATION
     - BRAND
   prompt: |
-    A surreal 3D isometric cityscape of [LOCATION] where buildings and landmarks are made entirely from the [BRAND] brand. Include miniature people interacting with the environment. Whimsical and playful tone, highly detailed textures, isometric composition, soft shadows, cinematic HDR lighting, sharp depth of field, vibrant color scheme, clever ad concept, 1:1 aspect ratio.
+    A surreal 3D isometric cityscape of [LOCATION] where buildings and landmarks are made entirely from the [BRAND] brand. 
+    Include miniature people interacting with the environment. 
+    Whimsical and playful tone, highly detailed textures, isometric composition, soft shadows, cinematic HDR lighting, sharp depth of field, vibrant color scheme, clever ad concept. 
+    Use a 1:1 aspect ratio.
 
 - name: "Diorama"
   variables:
     - THEME
   prompt: |
     Generate a highly detailed and narrative-driven 【3D Isometric Diorama】 for me. The core spatial theme depicted should be [THEME] presented as a "Story Cube" suspended in mid-air.
-    The perspective must be a strict 45-degree isometric view, similar to the isometric preview in 3D modeling software, without traditional perspective scaling. The front wall and/or ceiling of the room or building should be neatly cut away, allowing a clear view of the interior structure, furniture arrangement, and signs of daily life from the outside—like a miniature model room with its outer shell peeled back. Include a small, ongoing action within the scene—such as a cat curled asleep on the sofa, a lit computer screen, or smoke gently rising from a stove—to convey that the space is "actively inhabited."
-    The interior design style must align closely with the [THEME]: For an alchemist's secret workshop, feature crowded vials, parchment scrolls, ancient tomes, and alchemical apparatus; For a Gothic vampire's bedroom, incorporate pointed arched windows, dark velvet draperies, candlesticks, and antique furniture; for an abandoned space station command module, fill it with aged control panels, flickering screens, dangling cables, and floating gadgets. Interior spaces must adopt an "Organized Clutter" aesthetic: high-density, highly detailed clutter and personal items scattered throughout the room, ensuring every corner offers intriguing details to examine. Incorporate a small-scale, stylized character or chibi figure performing theme-appropriate daily actions within the room to add narrative depth and sense of scale.
-    Lighting should employ soft volumetric effects: primary light sources may originate from a window, ceiling fixture, computer monitor, magic circle, hearth fire, or neon sign—matching the theme as appropriate. Rays should form visible beams in the air with a slight haze, lending the room a warm, healing, or subtly mysterious ambiance. Materials should exhibit 3D-rendered refinement (similar to Blender/Cinema4D/Voxel styles), emphasizing wood grain, metallic reflections, glass transparency, and the drape and softness of fabrics. This transforms the entire isometric space into a meticulously crafted miniature model worthy of close inspection. The composition is landscape 16:9, high-resolution, and rich in detail.
+    The perspective must be a strict 45-degree isometric view, similar to the isometric preview in 3D modeling software, without traditional perspective scaling. 
+    The front wall and/or ceiling of the room or building should be neatly cut away, allowing a clear view of the interior structure, furniture arrangement, 
+    and signs of daily life from the outside—like a miniature model room with its outer shell peeled back. 
+    Include a small, ongoing action within the scene—such as a cat curled asleep on the sofa, a lit computer screen, or smoke gently rising 
+    from a stove—to convey that the space is "actively inhabited."
+    The interior design style must align closely with the [THEME]: For an alchemist's secret workshop, feature crowded vials, parchment scrolls, ancient tomes, and alchemical apparatus; 
+    For a Gothic vampire's bedroom, incorporate pointed arched windows, dark velvet draperies, candlesticks, and antique furniture; for an abandoned space station command module, 
+    fill it with aged control panels, flickering screens, dangling cables, and floating gadgets. 
+    Interior spaces must adopt an "Organized Clutter" aesthetic: high-density, highly detailed clutter and personal items scattered throughout the room, 
+    ensuring every corner offers intriguing details to examine. Incorporate a small-scale, stylized character or chibi figure performing theme-appropriate daily actions within the room 
+    to add narrative depth and sense of scale.
+    Lighting should employ soft volumetric effects: primary light sources may originate from a window, ceiling fixture, computer monitor, magic circle, hearth fire, 
+    or neon sign—matching the theme as appropriate. Rays should form visible beams in the air with a slight haze, lending the room a warm, healing, or subtly mysterious ambiance. 
+    Materials should exhibit 3D-rendered refinement (similar to Blender/Cinema4D/Voxel styles), emphasizing wood grain, metallic reflections, glass transparency, 
+    and the drape and softness of fabrics. This transforms the entire isometric space into a meticulously crafted miniature model worthy of close inspection. 
+    The composition is landscape 16:9, high-resolution, and rich in detail.
 
 - name: "Thermal X-Ray"
   variables:
     - THING
   prompt: |
-    [THING], presented in a side view high-contrast scientific studio render against a pure black void. This tight right-side profile features a false-color thermal X-ray aesthetic, where the transparent shell reveals a sharply detailed internal architecture of batteries, drivers, and sensors using a vibrant heatmap gradient. The colors shift from deep cool blues to intense yellows and red highlights, creating a futuristic, clinical look with orthographic perspective and a soft, neon-like glow.
+    [THING], presented in a side view high-contrast scientific studio render against a pure black void. 
+    This tight right-side profile features a false-color thermal X-ray aesthetic, where the transparent shell reveals a sharply detailed internal architecture of batteries, drivers, 
+    and sensors using a vibrant heatmap gradient. 
+    The colors shift from deep cool blues to intense yellows and red highlights, creating a futuristic, clinical look with orthographic perspective and a soft, neon-like glow.
 
 - name: "Exploded View"
   variables:
     - THING
   prompt: |
-    A photorealistic, ultra-detailed 3D CAD render of an [THING] shown in an exploded view. The subject is opened with key components floating in a 3/4 front isometric perspective. The layout is clean and technical, featuring thin white callout lines and numbered labels. Set against a smooth, dark gray studio background with soft, high-end product lighting.
+    A photorealistic, ultra-detailed 3D CAD render of an [THING] shown in an exploded view. The subject is opened with key components floating in a 3/4 front isometric perspective. 
+    The layout is clean and technical, featuring thin white callout lines and numbered labels. Set against a smooth, dark gray studio background with soft, high-end product lighting.
