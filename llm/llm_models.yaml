@@ -1,0 +1,534 @@
+azure:
+  defaults:
+    cloud_type: AZURE
+    max_tokens: 128000
+    openai_compatibility: true
+    multimodal: true
+    multimodal_mime_types: ["image/jpeg", "image/png"]
+    api_mode: responses
+    headers:
+      Content-Type: "application/json"
+      api-key: "${AZURE_API_KEY}"
+  models:
+    - id: gpt-5.2
+      reasoning_effort:
+        default: none
+        options: [none, low, medium, high]
+    - id: gpt-5.1
+      reasoning_effort:
+        default: none
+        options: [none, low, medium, high]
+    - id: gpt-5.1-codex-mini
+      reasoning_effort:
+        default: low
+        options: [low, medium, high]
+    - id: gpt-5
+      reasoning_effort:
+        default: minimal
+        options: [minimal, low, medium, high]
+    - id: gpt-5-mini
+      reasoning_effort:
+        default: low
+        options: [low, medium, high]
+    - id: gpt-5-nano
+      reasoning_effort:
+        default: low
+        options: [low, medium, high]
+    - id: gpt-4.1
+      max_tokens: 32767
+    - id: gpt-4.1-mini
+      max_tokens: 32767
+    - id: gpt-4.1-nano
+      max_tokens: 32767
+    - id: gpt-4o
+      max_tokens: 16383
+    - id: gpt-4o-mini
+      max_tokens: 16383
+    - id: o4-mini
+      reasoning_effort:
+        default: low
+        options: [low, medium, high]
+      max_tokens: 100000
+    - id: "anthropic/claude-haiku-4-5"
+      max_tokens: 32000
+      api_mode: "anthropic"
+      multimodal: false
+      headers:
+        Content-Type: "application/json"
+        x-api-key: "${AZURE_API_KEY}"
+        anthropic-version: "${AZURE_API_VERSION_ANTHROPIC}"
+    - id: "anthropic/claude-sonnet-4-5"
+      max_tokens: 32000
+      api_mode: "anthropic"
+      multimodal: false
+      headers:
+        Content-Type: "application/json"
+        x-api-key: "${AZURE_API_KEY}"
+        anthropic-version: "${AZURE_API_VERSION_ANTHROPIC}"
+    - id: "anthropic/claude-opus-4-5"
+      max_tokens: 32000
+      api_mode: "anthropic"
+      multimodal: false
+      headers:
+        Content-Type: "application/json"
+        x-api-key: "${AZURE_API_KEY}"
+        anthropic-version: "${AZURE_API_VERSION_ANTHROPIC}"
+
+openai:
+  defaults:
+    cloud_type: OPENAI
+    openai_compatibility: true
+    api_mode: "responses"
+    multimodal: true
+    multimodal_mime_types: ["image/jpeg", "image/png"]
+    max_tokens: 128000
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${OPENAI_API_KEY}"
+  models:
+    - id: gpt-5.2-2025-12-11
+      reasoning_effort:
+        default: none
+        options: [none, low, medium, high]
+    - id: gpt-5.1-2025-11-13
+      reasoning_effort:
+        default: none
+        options: [none, low, medium, high]
+    - id: gpt-5.1-codex
+      reasoning_effort:
+        default: low
+        options: [low, medium, high]
+    - id: gpt-5-2025-08-07
+      reasoning_effort:
+        default: minimal
+        options: [minimal, low, medium, high]
+    - id: gpt-5-mini-2025-08-07
+      reasoning_effort:
+        default: low
+        options: [low, medium, high]
+    - id: gpt-5-nano-2025-08-07
+      reasoning_effort:
+        default: low
+        options: [low, medium, high]
+    - id: o4-mini-2025-04-16
+      reasoning_effort:
+        default: low
+        options: [low, medium, high]
+      max_tokens: 100000
+    - id: gpt-4.1-2025-04-14
+      max_tokens: 32767
+    - id: gpt-4.1-mini-2025-04-14
+      max_tokens: 32767
+    - id: gpt-4.1-nano-2025-04-14
+      max_tokens: 32767
+    - id: gpt-4o-2024-11-20
+      max_tokens: 16383
+    - id: gpt-4o-2024-08-06
+      max_tokens: 16383
+    - id: gpt-4o-mini-2024-07-18
+      max_tokens: 16383
+
+github:
+  defaults:
+    cloud_type: GITHUB
+    max_tokens: 4000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${GITHUB_MODELS_TOKEN}"
+  models:
+    - id: "openai/gpt-4.1-nano"
+      max_tokens: 32767
+      multimodal: true
+      multimodal_mime_types: ["image/jpeg", "image/png"]
+    - id: "openai/gpt-4.1-mini"
+      max_tokens: 32767
+      multimodal: true
+      multimodal_mime_types: ["image/jpeg", "image/png"]
+    - id: "openai/gpt-4.1"
+      max_tokens: 32767
+      multimodal: true
+      multimodal_mime_types: ["image/jpeg", "image/png"]
+    - id: "openai/gpt-4o"
+      max_tokens: 16383
+      multimodal: true
+      multimodal_mime_types: ["image/jpeg", "image/png"]
+    - id: "openai/gpt-4o-mini"
+      max_tokens: 16383
+      multimodal: true
+      multimodal_mime_types: ["image/jpeg", "image/png"]
+    - id: "microsoft/Phi-4"
+    - id: "microsoft/Phi-4-mini-instruct"
+    - id: "meta/Llama-3.3-70B-Instruct"
+    - id: "deepseek/DeepSeek-R1"
+    - id: "deepseek/DeepSeek-R1-0528"
+    - id: "xai/grok-3-mini"
+    - id: "xai/grok-3"
+    - id: "mistral-ai/mistral-medium-2505"
+
+anthropic:
+  defaults:
+    cloud_type: ANTHROPIC
+    max_tokens: 64000
+    openai_compatibility: true
+    multimodal: true
+    multimodal_mime_types: ["application/pdf"]
+    headers:
+      Content-Type: "application/json"
+      x-api-key: "${ANTHROPIC_API_KEY}"
+      anthropic-version: "${ANTHROPIC_VERSION}"
+  models:
+    - id: claude-opus-4-5-20251101
+      max_tokens: 32000
+    - id: claude-haiku-4-5-20251001
+    - id: claude-sonnet-4-5-20250929
+    - id: claude-sonnet-4-20250514
+    - id: claude-opus-4-1-20250805
+      max_tokens: 32000
+    - id: claude-3-7-sonnet-20250219
+    - id: claude-3-5-haiku-20241022
+      max_tokens: 8192
+      multimodal: false
+
+gemini:
+  defaults:
+    cloud_type: GEMINI
+    max_tokens: 64000
+    openai_compatibility: false
+    top_p: 0.5
+    multimodal: true
+    multimodal_mime_types: ["application/pdf"]
+  models:
+    - id: gemini-3-flash-preview
+      thinking_level:
+        default: minimal
+        options: [minimal, low, high]
+    - id: gemini-3-pro-preview
+      thinking_level:
+        default: low
+        options: [low, high]
+    - id: gemini-2.5-flash
+      thinking_budget: 0
+    - id: gemini-2.5-flash-lite
+      thinking_budget: 0
+    - id: gemini-2.5-pro
+      thinking_budget: 0
+    - id: gemini-2.0-flash-lite
+      max_tokens: 8191
+    - id: gemini-2.0-flash
+      max_tokens: 8191
+    - id: gemma-3-27b-it
+      max_tokens: 8191
+    - id: gemma-3n-e4b-it
+      max_tokens: 8191
+
+vertexai:
+  defaults:
+    cloud_type: VERTEXAI
+    max_tokens: 64000
+    openai_compatibility: false
+    top_p: 0.5
+    multimodal: true
+    multimodal_mime_types: ["application/pdf"]
+  models:
+    - id: gemini-3-flash-preview
+      thinking_level:
+        default: minimal
+        options: [minimal, low, high]
+    - id: gemini-3-pro-preview
+      thinking_level:
+        default: low
+        options: [low, high]
+    - id: gemini-2.5-flash
+      thinking_budget: 0
+    - id: gemini-2.5-flash-lite
+      thinking_budget: 0
+    - id: gemini-2.5-pro
+      thinking_budget: 0
+    - id: gemini-2.0-flash
+      max_tokens: 8191
+    - id: "anthropic/claude-sonnet-4"
+
+bedrock:
+  defaults:
+    cloud_type: BEDROCK
+    max_tokens: 64000
+    openai_compatibility: false
+  models:
+    - id: "global.anthropic.claude-opus-4-5-20251101-v1:0"
+    - id: "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    - id: "us.anthropic.claude-sonnet-4-20250514-v1:0"
+    - id: "amazon.nova-premier-v1:0"
+      max_tokens: 32000
+    - id: "amazon.nova-pro-v1:0"
+      max_tokens: 5120
+    - id: "amazon.nova-lite-v1:0"
+      max_tokens: 5120
+    - id: "mistral.mistral-large-2402-v1:0"
+      max_tokens: 4000
+
+xai:
+  defaults:
+    cloud_type: XAI
+    max_tokens: 4000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${XAI_API_KEY}"
+  models:
+    - id: grok-4-1-fast-reasoning
+    - id: grok-4-1-fast-non-reasoning
+    - id: grok-4-fast-reasoning
+      max_tokens: 128000
+    - id: grok-4-fast-non-reasoning
+      max_tokens: 128000
+    - id: grok-4-0709
+    - id: grok-3
+    - id: grok-3-mini
+    - id: grok-2-vision-1212
+      multimodal: true
+      multimodal_mime_types: ["image/jpeg", "image/png"]
+
+deepseek:
+  defaults:
+    cloud_type: DEEPSEEK
+    max_tokens: 8000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${DEEPSEEK_API_KEY}"
+  models:
+    - id: deepseek-chat
+    - id: deepseek-reasoner
+      max_tokens: 64000
+
+stackit:
+  defaults:
+    cloud_type: STACKIT
+    max_tokens: 4096
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${STACKIT_API_KEY}"
+  models:
+    - id: "cortecs/Llama-3.3-70B-Instruct-FP8-Dynamic"
+
+alibabacloud:
+  defaults:
+    cloud_type: ALIBABACLOUD
+    max_tokens: 32768
+    openai_compatibility: true
+    top_p: 0.8
+    enable_thinking: false
+    thinking_budget: 0
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${ALIBABACLOUD_API_KEY}"
+  models:
+    - id: qwen-plus-2025-07-28
+    - id: qwen3-max-preview
+    - id: qwen-max-2025-01-25
+      max_tokens: 8192
+    - id: qwen3-235b-a22b-instruct-2507
+
+mistral:
+  defaults:
+    cloud_type: MISTRAL
+    max_tokens: 4000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${MISTRAL_API_KEY}"
+  models:
+    - id: mistral-large-latest
+    - id: ministral-3b-latest
+    - id: ministral-8b-latest
+    - id: mistral-small-latest
+    - id: pixtral-large-latest
+    - id: pixtral-12b-2409
+    - id: open-mistral-nemo
+
+minimax:
+  defaults:
+    cloud_type: MINIMAX
+    max_tokens: 128000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${MINIMAX_API_KEY}"
+  models:
+    - id: MiniMax-M2
+
+groq:
+  defaults:
+    cloud_type: GROQ
+    max_tokens: 4000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${GROQ_API_KEY}"
+  models:
+    - id: "qwen/qwen3-32b"
+      max_tokens: 130000
+    - id: deepseek-r1-distill-llama-70b
+      max_tokens: 130000
+    - id: llama-3.3-70b-versatile
+      max_tokens: 32766
+    - id: "moonshotai/kimi-k2-instruct"
+    - id: "openai/gpt-oss-120b-medium"
+      max_tokens: 32766
+      reasoning_effort: medium
+
+perplexity:
+  defaults:
+    cloud_type: PERPLEXITY
+    max_tokens: 8000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${PERPLEXITY_API_KEY}"
+  models:
+    - id: sonar
+    - id: sonar-search
+      search_mode: web
+      search_max_results: 5
+      search_recency_filter: week
+    - id: sonar-pro
+    - id: sonar-reasoning-pro
+      reasoning_effort:
+        default: low
+        options: [low, medium, high]
+    - id: sonar-deep-research
+      reasoning_effort: low
+
+fireworks:
+  defaults:
+    cloud_type: FIREWORKS
+    max_tokens: 4000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${FIREWORKS_API_KEY}"
+  models:
+    - id: qwen2p5-72b-instruct
+    - id: qwen3-235b-a22b
+    - id: qwen3-30b-a3b
+    - id: llama4-maverick-instruct-basic
+    - id: llama4-scout-instruct-basic
+
+openrouter:
+  defaults:
+    cloud_type: OPENROUTER
+    max_tokens: 16384
+    openai_compatibility: true
+    provider_order: null
+    provider_allow_fallbacks: false
+    provider_data_collection: deny
+    provider_sort: price
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${OPENROUTER_API_KEY}"
+  models:
+    - id: "openrouter/auto"
+    - id: "moonshotai/kimi-k2-0905"
+      max_tokens: 130000
+    - id: "moonshotai/kimi-k2-thinking"
+      max_tokens: 130000
+    - id: "z-ai/glm-4.6"
+    - id: "z-ai/glm-4.5v"
+    - id: "openai/gpt-5-mini"
+      multimodal: true
+      multimodal_mime_types: ["image/jpeg", "image/png"]
+    - id: "openai/gpt-oss-120b"
+
+hf:
+  defaults:
+    cloud_type: HF
+    max_tokens: 4000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${HF_API_KEY}"
+  models:
+    - id: "meta-llama/Meta-Llama-3-8B-Instruct"
+    - id: "meta-llama/Llama-3.1-70B-Instruct"
+    - id: "meta-llama/Llama-3.1-8B-Instruct"
+
+cerebras:
+  defaults:
+    cloud_type: CEREBRAS
+    max_tokens: 64000
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${CEREBRAS_API_KEY}"
+  models:
+    - id: gpt-oss-120b-medium
+      reasoning_effort: medium
+    - id: qwen-3-235b-a22b-instruct-2507
+    - id: zai-glm-4.6
+
+moonshotai:
+  defaults:
+    cloud_type: MOONSHOTAI
+    max_tokens: 262144
+    openai_compatibility: true
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer ${MOONSHOTAI_API_KEY}"
+  models:
+    - id: kimi-k2.5
+      thinking: enabled
+
+ollama:
+  defaults:
+    cloud_type: OLLAMA
+    max_tokens: 4096
+    openai_compatibility: true
+  models:
+    - id: qwen3
+    - id: "qwen3:4b"
+    - id: "qwen3:7b"
+    - id: "qwen3:14b"
+    - id: "qwen3:32b"
+    - id: "qwen3:30b-a3b"
+    - id: "phi4:14b"
+    - id: nemotron
+    - id: wizardlm2
+    - id: "llama3.2:3b"
+    - id: "llama3.3:70b"
+    - id: "mistral:7b"
+    - id: "mistral-small3.1:24b"
+    - id: mixtral
+    - id: dolphin-mixtral
+    - id: "gemma3:27b"
+    - id: "gemma3:12b"
+    - id: "gemma3:12b-it-q8_0"
+    - id: "gemma3:4b"
+    - id: "gemma3:1b"
+
+lmstudio:
+  defaults:
+    cloud_type: LMSTUDIO
+    max_tokens: 4096
+    openai_compatibility: true
+  models:
+    - id: "mlx-community/phi-4"
+    - id: nvidia_llama-3.1-nemotron-70b-instruct-hf
+    - id: llama-3.3-70b-instruct
+    - id: qwen2.5-14b-instruct
+    - id: qwen2.5-32b-instruct
+    - id: "mlx-community/meta-llama-3.1-8b-instruct"
+    - id: "lmstudio-community/meta-llama-3.1-8b-instruct"
+
+gpt4all:
+  defaults:
+    cloud_type: GPT4ALL
+    max_tokens: 2048
+    openai_compatibility: true
+    device: gpu
+    allow_download: false
+  models:
+    - id: Llama-3.2-1B-Instruct-Q4_0.gguf
+    - id: Llama-3.2-3B-Instruct-Q4_0.gguf
+    - id: Llama-3.3-70B-Instruct-Q4_K_M.gguf
