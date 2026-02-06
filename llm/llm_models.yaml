@@ -10,11 +10,13 @@ azure:
       Content-Type: "application/json"
       api-key: "${AZURE_API_KEY}"
   models:
-    - id: gpt-5.2
+    - id: model-router
+      max_tokens: 32768
+    - id: gpt-5.2-codex
       reasoning_effort:
-        default: none
-        options: [none, low, medium, high]
-    - id: gpt-5.1
+        default: low
+        options: [low, medium, high]
+    - id: gpt-5.2
       reasoning_effort:
         default: none
         options: [none, low, medium, high]
@@ -22,10 +24,10 @@ azure:
       reasoning_effort:
         default: low
         options: [low, medium, high]
-    - id: gpt-5
+    - id: gpt-5.1-codex
       reasoning_effort:
-        default: minimal
-        options: [minimal, low, medium, high]
+        default: low
+        options: [low, medium, high]
     - id: gpt-5-mini
       reasoning_effort:
         default: low
@@ -34,21 +36,21 @@ azure:
       reasoning_effort:
         default: low
         options: [low, medium, high]
-    - id: gpt-4.1
-      max_tokens: 32767
-    - id: gpt-4.1-mini
-      max_tokens: 32767
-    - id: gpt-4.1-nano
-      max_tokens: 32767
-    - id: gpt-4o
-      max_tokens: 16383
-    - id: gpt-4o-mini
-      max_tokens: 16383
+    - id: gpt-5.1
+      reasoning_effort:
+        default: none
+        options: [none, low, medium, high]
     - id: o4-mini
       reasoning_effort:
         default: low
         options: [low, medium, high]
       max_tokens: 100000
+    - id: grok-4-fast-non-reasoning
+      max_tokens: 32768
+    - id: grok-4-fast-reasoning
+      max_tokens: 32768
+    - id: gpt-oss-120b
+      max_tokens: 32768
     - id: "anthropic/claude-haiku-4-5"
       max_tokens: 32000
       api_mode: "anthropic"
@@ -73,6 +75,14 @@ azure:
         Content-Type: "application/json"
         x-api-key: "${AZURE_API_KEY}"
         anthropic-version: "${AZURE_API_VERSION_ANTHROPIC}"
+    - id: Kimi-K2.5
+      max_tokens: 4096
+    - id: DeepSeek-V3.2
+      max_tokens: 4096
+    - id: Mistral-Large-3
+      max_tokens: 4096
+    - id: Llama-3.3-70b-Instruct
+      max_tokens: 4096
 
 openai:
   defaults:
@@ -115,18 +125,6 @@ openai:
         default: low
         options: [low, medium, high]
       max_tokens: 100000
-    - id: gpt-4.1-2025-04-14
-      max_tokens: 32767
-    - id: gpt-4.1-mini-2025-04-14
-      max_tokens: 32767
-    - id: gpt-4.1-nano-2025-04-14
-      max_tokens: 32767
-    - id: gpt-4o-2024-11-20
-      max_tokens: 16383
-    - id: gpt-4o-2024-08-06
-      max_tokens: 16383
-    - id: gpt-4o-mini-2024-07-18
-      max_tokens: 16383
 
 github:
   defaults:
@@ -137,26 +135,6 @@ github:
       Content-Type: "application/json"
       Authorization: "Bearer ${GITHUB_MODELS_TOKEN}"
   models:
-    - id: "openai/gpt-4.1-nano"
-      max_tokens: 32767
-      multimodal: true
-      multimodal_mime_types: ["image/jpeg", "image/png"]
-    - id: "openai/gpt-4.1-mini"
-      max_tokens: 32767
-      multimodal: true
-      multimodal_mime_types: ["image/jpeg", "image/png"]
-    - id: "openai/gpt-4.1"
-      max_tokens: 32767
-      multimodal: true
-      multimodal_mime_types: ["image/jpeg", "image/png"]
-    - id: "openai/gpt-4o"
-      max_tokens: 16383
-      multimodal: true
-      multimodal_mime_types: ["image/jpeg", "image/png"]
-    - id: "openai/gpt-4o-mini"
-      max_tokens: 16383
-      multimodal: true
-      multimodal_mime_types: ["image/jpeg", "image/png"]
     - id: "microsoft/Phi-4"
     - id: "microsoft/Phi-4-mini-instruct"
     - id: "meta/Llama-3.3-70B-Instruct"
@@ -375,9 +353,11 @@ groq:
     - id: llama-3.3-70b-versatile
       max_tokens: 32766
     - id: "moonshotai/kimi-k2-instruct"
-    - id: "openai/gpt-oss-120b-medium"
+    - id: "openai/gpt-oss-120b"
       max_tokens: 32766
-      reasoning_effort: medium
+      reasoning_effort: 
+        default: medium
+        options: [low, medium, high]
 
 perplexity:
   defaults:
@@ -463,8 +443,10 @@ cerebras:
       Content-Type: "application/json"
       Authorization: "Bearer ${CEREBRAS_API_KEY}"
   models:
-    - id: gpt-oss-120b-medium
-      reasoning_effort: medium
+    - id: gpt-oss-120b
+      reasoning_effort: 
+        default: medium
+        options: [low, medium, high]
     - id: qwen-3-235b-a22b-instruct-2507
     - id: zai-glm-4.6
 
@@ -478,7 +460,8 @@ moonshotai:
       Authorization: "Bearer ${MOONSHOTAI_API_KEY}"
   models:
     - id: kimi-k2.5
-      thinking: enabled
+      thinking_type: disabled
+      temperature: 0.6
 
 ollama:
   defaults:
