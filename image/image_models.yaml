@@ -2,29 +2,33 @@ azure:
   defaults:
     cloud_type: AZURE
   models:
-    - id: dall-e-3
-      image_size:
-        default: 1792x1024
-        options: [1024x1024, 1792x1024, 1024x1792]
-      image_quality:
-        default: hd
-        options: [hd, standard]
-      style:
-        default: vivid
-        options: [vivid, natural]
-    - id: gpt-image-1
+    - id: gpt-image-1.5
       image_size:
         default: 1536x1024
         options: [1024x1024, 1536x1024, 1024x1536]
       image_quality:
         default: medium
-        options: [high, medium, low, auto]
-      moderation:
-        default: low
-        options: [low, auto]
+        options: [high, medium, low]
       output_compression:
         default: 100
         options: [100, 80, 60]
+    - id: gpt-image-1-mini
+      image_size:
+        default: 1536x1024
+        options: [1024x1024, 1536x1024, 1024x1536]
+      image_quality:
+        default: medium
+        options: [high, medium, low]
+      moderation:
+        default: low
+        options: [low, auto]
+    - id: FLUX.2-pro
+      image_width:
+        default: 1680
+        options: [1792, 1680, 1920, 1440, 1024, 256]
+      image_height:
+        default: 720
+        options: [256, 864, 720, 1024, 1080, 1440, 1792]
     - id: FLUX-1.1-pro
       image_size:
         default: 1440x1024
@@ -35,26 +39,18 @@ azure:
         default: "4:3"
         options: ["21:9", "16:9", "4:3", "1:1", "9:16", "9:21"]
       prompt_upsampling: false
-    - id: sora
+    - id: sora-2
       image_size:
-        default: 854x480
-        options: [480x480, 854x480, 720x720, 1280x720, 1080x1080, 1920x1080]
-      video_length: 4
+        default: 1280x720
+        options: [720x1280, 1280x720]
+      video_length: 
+        default: "4"
+        options: ["4", "8", "12"]
 
 openai:
   defaults:
     cloud_type: OPENAI
   models:
-    - id: dall-e-3
-      image_size:
-        default: 1792x1024
-        options: [1024x1024, 1792x1024, 1024x1792]
-      image_quality:
-        default: hd
-        options: [hd, standard]
-      style:
-        default: vivid
-        options: [vivid, natural]
     - id: gpt-image-1.5
       image_size:
         default: 1536x1024
@@ -71,19 +67,6 @@ openai:
       background:
         default: auto
         options: [auto, transparent, opaque]
-    - id: gpt-image-1
-      image_size:
-        default: 1536x1024
-        options: [1024x1024, 1536x1024, 1024x1536]
-      image_quality:
-        default: medium
-        options: [high, medium, low, auto]
-      moderation:
-        default: low
-        options: [low, auto]
-      output_compression:
-        default: 100
-        options: [100, 80, 60]
     - id: gpt-image-1-mini
       image_size:
         default: 1536x1024
@@ -101,12 +84,16 @@ openai:
       image_size:
         default: 1280x720
         options: [720x1280, 1280x720, 1024x1792, 1792x1024]
-      video_length: 4
+      video_length: 
+        default: "4"
+        options: ["4", "8", "12"]
     - id: sora-2-pro
       image_size:
         default: 1280x720
         options: [720x1280, 1280x720, 1024x1792, 1792x1024]
-      video_length: 4
+      video_length: 
+        default: "4"
+        options: ["4", "8", "12"]
 
 stabilityai:
   defaults:
@@ -386,6 +373,20 @@ bfl:
       guidance: # 1.5-10
         default: 5
         options: [1.5, 5, 7.5, 10]
+    - id: flux-2-klein-4b
+      image_width:
+        default: 1680
+        options: [2016, 1680, 1920, 1440, 1024, 64]
+      image_height:
+        default: 720
+        options: [64, 864, 720, 1080, 1024]
+    - id: flux-2-klein-9b
+      image_width:
+        default: 1680
+        options: [2016, 1680, 1920, 1440, 1024, 64]
+      image_height:
+        default: 720
+        options: [64, 864, 720, 1080, 1024]
     - id: flux-kontext-pro
       image_aspect_ratio:
         default: "4:3"
